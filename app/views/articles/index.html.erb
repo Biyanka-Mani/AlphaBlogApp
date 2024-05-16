@@ -2,9 +2,9 @@
 <table>
     <thead>
         <tr>
-            <td><b>Title</b> </td>
-            <td><b>Description</b></td>
-            <td><b>Actions</b></td>
+            <th><b>Title</b> </th>
+            <th><b>Description</b></th>
+            <th colspan="3"><b>Actions</b></th>
         </tr>
     </thead>
     <tbody>
@@ -12,8 +12,16 @@
         <tr>
             <td><%= article.title %></td>
             <td><%= article.Description %></td>
-            <td>Placeholder</td>
+            <td><%=link_to 'Show' ,article_path(article) %></td>
+            <td><%=link_to 'Edit' ,edit_article_path(article)%></td>
+            <td><%= link_to 'Delete' , article_path(article) , data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %></td>
         </tr>
     </tbody>
     <% end %>
+
 </table>
+<h3>Need to create a new Article?</h3>
+<%= link_to 'Create A New Article',new_article_path %>

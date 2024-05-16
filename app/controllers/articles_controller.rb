@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
        @article=Article.new(params.require(:article).permit(:title, :Description))
        
        if @article.save
-        flash[:notice]="Artice is saved successfully"
+        flash[:notice]="Article is saved successfully"
         redirect_to article_path(@article)
        else
         render :new, status: :unprocessable_entity
@@ -20,9 +20,22 @@ class ArticlesController < ApplicationController
 
     end
     def edit
-        @article=Article.new()
+        @article=Article.find(params[:id])
     end
     def update
+        @article=Article.find(params[:id])
+        if @article.update(params.require(:article).permit(:title, :Description))
+            flash[:notice]="Article is updated succesfully"
+            redirect_to article_path(@article)
+        else
+            render :edit, status: :unprocessable_entity
+        end
+
+    end
+    def destroy
+        @article=Article.find(params[:id])
+        @article.destroy
+        redirect_to articles_path 
 
     end
 end

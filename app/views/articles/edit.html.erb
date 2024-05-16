@@ -1,5 +1,5 @@
 <h1>Editing Page Of Article</h1>
-<
+
 
 <% if @article.errors.any? %>
     <h2>The following errors makes the Articles from being saved </h2>
@@ -12,7 +12,7 @@
 <% end %>
 
 
-<%= form_with (model: @article, local: true) do |f| %>
+<%= form_with model: @article do |f| %>
 
     <p>
         <%= f.label :title %><br/>
@@ -28,3 +28,9 @@
     </p>
     
 <% end %>
+<%= link_to 'Delete',article_path(@article.id),data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %> |
+
+<%=link_to 'Back To Articles Page',articles_path %>
