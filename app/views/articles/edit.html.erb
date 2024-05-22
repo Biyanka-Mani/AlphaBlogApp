@@ -1,36 +1,6 @@
-<h1>Editing Page Of Article</h1>
+<h1 class="text-center mt-3">Editing Page Of Article</h1>
 
 
-<% if @article.errors.any? %>
-    <h2>The following errors makes the Articles from being saved </h2>
-    <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li>  <%= message %> </li>
-        <% end %>
-    </ul>
-
-<% end %>
+<%= render 'form' %>
 
 
-<%= form_with model: @article do |f| %>
-
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-
-    </p>
-    <p>
-        <%=f.label :Description %><br/>
-        <%=f.text_area :Description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-    
-<% end %>
-<%= link_to 'Delete',article_path(@article.id),data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %> |
-
-<%=link_to 'Back To Articles Page',articles_path %>
