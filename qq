@@ -1,0 +1,29 @@
+ => 
+[[32m#<User:0x00007f3e98558150[0m
+  id: [34m[1m4[0m,
+  username: [31m[1m"[0m[31mbiyanka48565236fdgdf512[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mBiyanka4dxfcgvhbjnik4@gmail.com[0m[31m[1m"[0m,
+  created_at: Mon, 27 May 2024 09:37:37.172492000 UTC +00:00,
+  updated_at: Mon, 27 May 2024 09:37:37.172492000 UTC +00:00,
+  password_digest: [36m[1mnil[0m[32m>[0m,
+ [32m#<User:0x000055d6218a7cd8[0m
+  id: [34m[1m5[0m,
+  username: [31m[1m"[0m[31mbiya12[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mBiyaMolMani@gmaiL.Com[0m[31m[1m"[0m,
+  created_at: Mon, 27 May 2024 11:03:17.464682000 UTC +00:00,
+  updated_at: Mon, 27 May 2024 11:03:17.464682000 UTC +00:00,
+  password_digest: [36m[1mnil[0m[32m>[0m,
+ [32m#<User:0x000055d6218a79e0[0m
+  id: [34m[1m6[0m,
+  username: [31m[1m"[0m[31mbiyamani[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mbiya3456789@gmail.com[0m[31m[1m"[0m,
+  created_at: Mon, 27 May 2024 11:06:33.216073000 UTC +00:00,
+  updated_at: Mon, 27 May 2024 11:06:33.216073000 UTC +00:00,
+  password_digest: [36m[1mnil[0m[32m>[0m,
+ [32m#<User:0x000055d6218a75f8[0m
+  id: [34m[1m7[0m,
+  username: [31m[1m"[0m[31mjijymani[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mmanijijy@gamil.com[0m[31m[1m"[0m,
+  created_at: Mon, 27 May 2024 11:07:50.042185000 UTC +00:00,
+  updated_at: Mon, 27 May 2024 11:07:50.042185000 UTC +00:00,
+  password_digest: [36m[1mnil[0m[32m>[0m] 
