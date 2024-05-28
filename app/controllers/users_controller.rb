@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     def create 
         @user=User.new(user_params)
         if @user.save
-        flash[:notice]="User Created Successfully"
-         redirect_to user_path(@user)
+        flash[:notice]="Welcome To Alpha Blog,#{@user.username} Created Successfully"
+         redirect_to articles_path
         else
          render :new, status: :unprocessable_entity
         end
