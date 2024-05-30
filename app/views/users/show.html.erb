@@ -1,0 +1,12 @@
+<h1 class="text-center mt-3"> <%=@user.username%> 's Profile</h1>
+<%= gravator_for @user,size:200 %>
+<div class="text-center mt-2">
+    <%if logged_in?  && @user == current_user %>
+        <%=link_to 'Edit Your Profile',edit_user_path(@user),class:"btn btn-outline-success mt-3"%>
+    <%end%>
+</div>
+
+
+<h2 class="text-center mt-3">Articles</h2>
+
+<%= render 'articles/article' %>

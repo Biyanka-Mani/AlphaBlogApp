@@ -5,14 +5,14 @@ class ArticlesController < ApplicationController
         
     end
     def index
-        @articles=Article.all
+        @articles=Article.paginate(page: params[:page], per_page: 3)
     end
     def new
         @article=Article.new
     end
     def create 
        @article=Article.new(articles_params)
-       @article.user=User.first
+       @article.user=User.find(current_user.id)
        if @article.save
         flash[:notice]="Article is saved successfully"
         redirect_to article_path(@article)
@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
     def destroy
         
         @article.destroy
+        flash[:notice]="Article is Deleted succesfully"
         redirect_to articles_path 
 
     end
