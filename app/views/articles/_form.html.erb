@@ -17,6 +17,14 @@
                             <%=f.text_area :Description,class:"form-control shadow  rounded",rows:9 ,placeholder:"Description of The Article"%>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <%=f.label :category,class:"col-2 col-form-label text-white" %>
+                        <div class="col-10 mt-4">
+                            <%= f.collection_select(:category_ids,Category.order(:name), :id, :name,
+                                {prompt: "Make Your Select from Below Options(can be empty)"}, 
+                                { multiple:true ,size:3,class:"form-select shadow rounded"}) %>
+                        </div>
+                    </div>
                     <div class="form-group  text-center mt-5">
                         <%= f.submit class:"btn btn-outline-dark btn-lg my-6 text-white " %>
                     </div> 

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    before_action :find_user,only: [:edit,:update,:show]
+    before_action :find_user,only: [:edit,:update,:show,:destroy]
+    before_action :require_user,only: [:edit,:update]
+    before_action :require_same_user,only: [:edit,:update,:destroy]
     def new
         @user=User.new
     end
@@ -31,7 +33,14 @@ class UsersController < ApplicationController
      def show
         @articles=@user.articles.paginate(page: params[:page], per_page: 3)
      end
-     
+     def destroy
+         @user.destroy
+         if current_user == @user
+            session[:user_id]=nil
+         end
+         flash[:notice]="User and all assoisated Articles is Deleted Successfully"
+         redirect_to articles_path
+     end
 
      private
      def user_params
@@ -39,5 +48,11 @@ class UsersController < ApplicationController
      end
      def find_user
         @user=User.find(params[:id])
+     end
+     def require_same_user
+         if current_user != @user && !current_user.admin?
+            flash[:alert]="You can only edit/Delete Your profile"
+            redirect_to user_path(@user)
+         end
      end
 end 

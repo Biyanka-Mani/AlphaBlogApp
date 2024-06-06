@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :articles,only: [:show, :index,:new ,:create, :edit ,:update, :destroy]
   resources :users,except:[:new]
+  resources :categories,except:[:destroy]
   
 
   # Defines the root path route ("/")

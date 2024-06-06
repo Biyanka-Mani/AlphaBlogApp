@@ -16,8 +16,17 @@
                         <%= link_to gravator_for(user,size:100 ),user_path(user)%>
                         <p class="card-text mt-3"><%=pluralize(user.articles.count,"articles")%></p>
                         <%=link_to 'View Profile' ,user_path(user),class:"btn btn-outline-primary" %>
-                        <%if logged_in?  && user == current_user %>
-                            <%= link_to 'Edit Profile', edit_user_path(user),class:"btn btn-outline-success"%> 
+                        <%if logged_in? %>
+                            <% if user == current_user %>
+                                <%= link_to 'Edit Profile', edit_user_path(user),class:"btn btn-outline-success"%>
+                            <%end%> 
+                            <% if  current_user.admin? %>
+                                <%= link_to 'Delete User', user_path(user),class:"btn btn-outline-danger",data: { 
+                                turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                            } %>
+                            <%end%> 
+
                         <%end%>
                         
                     </div>

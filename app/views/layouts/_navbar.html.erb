@@ -25,17 +25,32 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                    </a>
+                    <ul class="dropdown-menu">
+                        <%if logged_in? && current_user.admin? %>
+                            <%= link_to 'Create A New Category',new_category_path,class:"dropdown-item"%>
+                        <%end%>
+                        <%= link_to 'categories', categories_path,class:"dropdown-item"%>
+                    </ul>
+                </li>
                 <% if logged_in? %>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <%=current_user.username%>
+                        <%="(Admin) " if current_user.admin? %><%= current_user.username%>
                         </a>
                         <ul class="dropdown-menu">
                            
                             <%= link_to 'View Your Profile',user_path(current_user),class:"dropdown-item"%>
                             <%= link_to 'Edit Your Profile',  edit_user_path(current_user),class:"dropdown-item"%>
+                             <%= link_to 'Delete Your Profile',  user_path(current_user),class:"dropdown-item text-danger",data: { 
+                                turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                            } %>
+                            
                         </ul>
                     </li>
                     <li class="nav-item">
